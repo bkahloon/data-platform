@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# install conda
+# install kafka binaries
 wget --quiet http://apache.mirror.gtcomm.net/kafka/2.3.0/kafka_2.12-2.3.0.tgz -O /etc/kafka.tgz && tar -xzf /etc/kafka.tgz && \
     mv /etc/kafka_2.12-2.3.0 /etc/kafka
 
