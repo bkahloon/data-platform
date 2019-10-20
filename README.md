@@ -1,6 +1,6 @@
 # Terraform + EMR + Kafka + Zookeeper
 
-This project aims to stand up an EMR, Kafka and Zookeeper Cluster in AWS (work in progress).
+This project aims to stand up an EMR, Kafka and Zookeeper cluster in AWS (work in progress).
 
 ## Getting Started
 1. Install Terraform on Mac: `brew install terraform`
