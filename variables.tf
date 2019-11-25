@@ -13,3 +13,7 @@ variable "master_instance_type" {}
 variable "core_instance_type" {}
 variable "core_instance_count" {}
 variable "core_ebs_size" {}
+variable "zk_az" {}
+variable "zk_instance_type" {}
+variable "zk_count" {}
+variable "zk_ami" {}

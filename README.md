@@ -20,5 +20,6 @@ terraform destroy
 
 ## Inspiration
 * Dat Tran, github:  [datitran](https://github.com/datitran)
+* Marcos Lomboglia, github: [mlomboglia](https://github.com/mlomboglia)
 * Davis Liu, github: [davisliu11](https://github.com/davisliu11)
 

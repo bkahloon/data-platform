@@ -24,3 +24,14 @@ module "emr" {
   emr_service_role          = "${module.iam.emr_service_role}"
   emr_autoscaling_role      = "${module.iam.emr_autoscaling_role}"
 }
+
+module "zookeeper"{
+  source                    = "./modules/zookeeper"
+  zookeeper_instance_count  = "${var.zk_count}"
+  zookeeper_ami   = "${var.zk_ami}"
+  zookeeper_instance_type = "${var.zk_instance_type}"
+  zookeeper_availability_zones  = "${var.zk_az}"
+  zookeeper_sg = "${module.security.zookeeper_security_group}"
+  ssh_key = "${var.key_name}"
+
+}
