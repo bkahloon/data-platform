@@ -13,7 +13,9 @@ variable "master_instance_type" {}
 variable "core_instance_type" {}
 variable "core_instance_count" {}
 variable "core_ebs_size" {}
-variable "zk_az" {}
-variable "zk_instance_type" {}
+variable "az" {}
+variable "instance_type" {}
 variable "zk_count" {}
 variable "zk_ami" {}
+variable "kafka_instance_count" {}
+variable "kafka_ami" {}

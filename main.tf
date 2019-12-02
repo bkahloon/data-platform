@@ -3,7 +3,7 @@ module "iam" {
 }
 
 module "security" {
-  source              = "./modules/security"
+  source = "./modules/security"
 }
 
 module "emr" {
@@ -25,13 +25,21 @@ module "emr" {
   emr_autoscaling_role      = "${module.iam.emr_autoscaling_role}"
 }
 
-module "zookeeper"{
-  source                    = "./modules/zookeeper"
-  zookeeper_instance_count  = "${var.zk_count}"
-  zookeeper_ami   = "${var.zk_ami}"
-  zookeeper_instance_type = "${var.zk_instance_type}"
-  zookeeper_availability_zones  = "${var.zk_az}"
-  zookeeper_sg = "${module.security.zookeeper_security_group}"
-  ssh_key = "${var.key_name}"
+module "zookeeper" {
+  source                       = "./modules/zookeeper"
+  zookeeper_instance_count     = "${var.zk_count}"
+  zookeeper_ami                = "${var.zk_ami}"
+  zookeeper_instance_type      = "${var.instance_type}"
+  zookeeper_availability_zones = "${var.zk_az}"
+  zookeeper_sg                 = "${module.security.zookeeper_security_group}"
+  ssh_key                      = "${var.key_name}"
+}
 
+module "kafka" {
+  source                   = "./modules/kafka"
+  instance_count           = "${var.kafka_instance_count}"
+  instance_type            = "${var.instance_type}"
+  kafka_availability_zones = "${var.az}"
+  kafka_sg                 = "${module.security.kafka_security_group}"
+  ssh_key                  = "${var.key_name}"
 }
