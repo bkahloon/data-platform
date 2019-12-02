@@ -17,3 +17,7 @@ output "zookeeper_security_group" {
 output "ssh_key" {
   value = "${aws_security_group.ssh.id}"
 }
+
+output "ssh_key_name" {
+  value = "${aws_security_group.ssh.name}"
+}

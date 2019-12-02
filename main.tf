@@ -11,7 +11,7 @@ module "emr" {
   name                      = "${var.name}"
   release_label             = "${var.release_label}"
   applications              = "${var.applications}"
-  key_name                  = "${module.security.ssh_key}"
+  key_name                  = "${var.key_name}"
   master_instance_type      = "${var.master_instance_type}"
   master_ebs_size           = "${var.master_ebs_size}"
   core_instance_type        = "${var.core_instance_type}"
@@ -32,7 +32,7 @@ module "zookeeper" {
   zookeeper_instance_type      = "${var.instance_type}"
   zookeeper_availability_zones = "${var.az}"
   zookeeper_sg                 = "${module.security.zookeeper_security_group}"
-  ssh_key                      = "${module.security.ssh_key}"
+  ssh_key                      = "${var.key_name}"
 }
 
 module "kafka" {
@@ -41,5 +41,5 @@ module "kafka" {
   instance_type            = "${var.instance_type}"
   kafka_availability_zones = "${var.az}"
   kafka_sg                 = "${module.security.kafka_security_group}"
-  ssh_key                  = "${module.security.ssh_key}"
+  ssh_key                  = "${var.key_name}"
 }
