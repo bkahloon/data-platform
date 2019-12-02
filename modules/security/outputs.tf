@@ -13,3 +13,7 @@ output "kafka_security_group" {
 output "zookeeper_security_group" {
   value = "${aws_security_group.zookeeper.id}"
 }
+
+output "ssh_key" {
+  value = "${aws_security_group.ssh.id}"
+}

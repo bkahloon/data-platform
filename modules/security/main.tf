@@ -10,7 +10,7 @@ resource "aws_security_group" "emr_master" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "emr-master"
   }
 }
@@ -27,7 +27,7 @@ resource "aws_security_group" "emr_slave" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "emr-slave"
   }
 }
@@ -50,7 +50,7 @@ resource "aws_security_group" "ssh" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "ssh_security_group"
   }
 }
@@ -80,7 +80,7 @@ resource "aws_security_group" "kafka" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "kafka_security_group"
   }
 }
@@ -110,7 +110,7 @@ resource "aws_security_group" "zookeeper" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "zookeeper_security_group"
   }
 

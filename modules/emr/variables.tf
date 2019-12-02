@@ -9,7 +9,9 @@ variable "applications" {
 variable "master_instance_type" {
   default = "m1.medium"
 }
-variable "master_ebs_size" {}
+variable "master_ebs_size" {
+  default = 20
+}
 variable "core_instance_type" {
   default = "m1.medium"
 }
@@ -17,7 +19,9 @@ variable "core_instance_count" {
   default = 1
 }
 variable "ssh_sg" {}
-variable "core_ebs_size" {}
+variable "core_ebs_size" {
+  default = 50
+}
 variable "emr_master_security_group" {}
 variable "emr_slave_security_group" {}
 variable "emr_ec2_instance_profile" {}

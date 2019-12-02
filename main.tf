@@ -11,8 +11,7 @@ module "emr" {
   name                      = "${var.name}"
   release_label             = "${var.release_label}"
   applications              = "${var.applications}"
-  subnet_id                 = "${var.subnet_id}"
-  key_name                  = "${var.key_name}"
+  key_name                  = "${module.security.ssh_key}"
   master_instance_type      = "${var.master_instance_type}"
   master_ebs_size           = "${var.master_ebs_size}"
   core_instance_type        = "${var.core_instance_type}"
@@ -23,6 +22,7 @@ module "emr" {
   emr_ec2_instance_profile  = "${module.iam.emr_ec2_instance_profile}"
   emr_service_role          = "${module.iam.emr_service_role}"
   emr_autoscaling_role      = "${module.iam.emr_autoscaling_role}"
+  ssh_sg                    = "${module.security.ssh_key}"
 }
 
 module "zookeeper" {
@@ -30,9 +30,9 @@ module "zookeeper" {
   zookeeper_instance_count     = "${var.zk_count}"
   zookeeper_ami                = "${var.zk_ami}"
   zookeeper_instance_type      = "${var.instance_type}"
-  zookeeper_availability_zones = "${var.zk_az}"
+  zookeeper_availability_zones = "${var.az}"
   zookeeper_sg                 = "${module.security.zookeeper_security_group}"
-  ssh_key                      = "${var.key_name}"
+  ssh_key                      = "${module.security.ssh_key}"
 }
 
 module "kafka" {
@@ -41,5 +41,5 @@ module "kafka" {
   instance_type            = "${var.instance_type}"
   kafka_availability_zones = "${var.az}"
   kafka_sg                 = "${module.security.kafka_security_group}"
-  ssh_key                  = "${var.key_name}"
+  ssh_key                  = "${module.security.ssh_key}"
 }

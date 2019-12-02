@@ -28,7 +28,7 @@ resource "aws_emr_cluster" "emr-cluster" {
     path = "./templates/bootstrap_actions.sh"
   }
 
-  tags {
+  tags = {
       Name = "${var.name} - Spark cluster"
     }
 
