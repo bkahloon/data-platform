@@ -16,8 +16,8 @@ variable "instance_count" {
 }
 
 variable "kafka_ami" {
-  description = "Linux 2 AMI"
-  default = "ami-0b69ea66ff7391e80"
+  description = "Redhat AMI"
+  default = "ami-0c322300a1dd5dc79"
 }
 
 variable "kafka_availability_zones" {

@@ -80,7 +80,7 @@ resource "aws_instance" "broker" {
     ami = "${var.kafka_ami}"
     instance_type = "${var.instance_type}"
     key_name = "${var.ssh_key}"
-      vpc_security_group_ids = [ var.kafka_sg
+    vpc_security_group_ids = [ var.kafka_sg
  ]
 
     availability_zone = var.kafka_availability_zones[count.index % length(var.kafka_availability_zones)]

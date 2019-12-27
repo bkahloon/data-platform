@@ -1,57 +1,25 @@
-resource "aws_security_group" "emr_master" {
+resource "aws_security_group" "emr_security_group" {
   name                   = "emr-master-sg"
   description            = "Security group for EMR master."
   revoke_rules_on_delete = true
 
+  ingress {
+    cidr_blocks = [
+      "0.0.0.0/0"
+    ]
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+  }
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
     Name = "emr-master"
-  }
-}
-
-resource "aws_security_group" "emr_slave" {
-  name                   = "emr-slave-sg"
-  description            = "Security group for EMR slave."
-  revoke_rules_on_delete = true
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "emr-slave"
-  }
-}
-
-resource "aws_security_group" "ssh" {
-  name        = "ssh_security_group"
-  description = "Allow ssh traffic"
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "ssh_security_group"
   }
 }
 
@@ -73,18 +41,20 @@ resource "aws_security_group" "kafka" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
+  ingress {
+    cidr_blocks = [
+      "0.0.0.0/0"
+    ]
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
   }
 
-  ingress {
-    from_port = 22
-    protocol = "tcp"
-    to_port = 22
-    security_groups = [aws_security_group.ssh.id]
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -110,11 +80,20 @@ resource "aws_security_group" "zookeeper" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    cidr_blocks = [
+      "0.0.0.0/0"
+    ]
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+  }
+
   egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
