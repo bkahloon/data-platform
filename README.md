@@ -68,7 +68,7 @@ terraform destroy -target=module.kafka.aws_instance.broker -target=module.zookee
 You will be able to access the machines on the standard ssh port of 22. By default all inbound traffic is allowed considering you have access to a valid ssh-key pair. If you require more strict control you can play around with the security module to configure your needs.
 
 ## Inspiration
-
+* Cloud Posse, github: [cloudposse](https://github.com/cloudposse)
 * Dat Tran, github:  [datitran](https://github.com/datitran)
 * Marcos Lomboglia, github: [mlomboglia](https://github.com/mlomboglia)
 * Davis Liu, github: [davisliu11](https://github.com/davisliu11)
