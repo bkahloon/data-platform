@@ -28,7 +28,7 @@ kafka_instance_count = {
 "broker" = 5 
 }
 ```
-This is the map object in the terraform.tfvars file that will specify how a big of a cluster you'd like for each system. The "broker" key is for the core kafka instance
+This is the map object in the terraform.tfvars file that will specify how a big of a cluster you'd like for each system. The "broker" key is for the core kafka cluster
 
 ```
 terraform apply -target=module.kafka.aws_instance.broker -target=module.zookeeper -target=module.kafka.aws_instance.connect
