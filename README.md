@@ -16,7 +16,7 @@ terraform apply -target=module.emr
 You can specify what applications you would like to install and the EMR version by setting those variables in the terraform.tfvars file in the root directory of the terraform project. I would also recommend using spot instances for a more cost efficient cluster. I recommend using on demand instances for master and core nodes and to allow for a higher computing capacity to use task nodes.
  
 ## Create a kafka cluster
-You can create an entire core kafka cluster and some other kafka related systems like Kafka Connect, cluster to run your Kafka Streams jobs, Confluent Schema Registery, Confluent Control Center to monitor you cluster and Confluent REST Proxy.
+You can create an entire core kafka cluster and some other kafka related systems like Kafka Connect, cluster for running KSql jobs, Confluent Schema Registery, Confluent Control Center to monitor you cluster and Confluent REST Proxy.
 
 ```
 kafka_instance_count = {
