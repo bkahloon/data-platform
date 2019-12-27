@@ -1,4 +1,4 @@
-# Terraform + EMR + Kafka + Zookeeper
+# Infrastructure as Code for EMR + Kafka + Zookeeper
 
 This project aims to stand up an EMR, Kafka and Zookeeper cluster in AWS for rapid prototyping of data science and big data related projects.
 
